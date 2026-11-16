@@ -1,0 +1,81 @@
+# News and events engine (Stage 5). Safe to edit; restart the bot afterwards.
+#
+# Each announcement or headline is matched to ONE event type: the first type below
+# whose keyword appears in the title wins, so the specific types come first.
+# "impact" is the usual direction for the share price: positive / negative / mixed / neutral.
+# The notes describe what usually happens on NEPSE. They are general market knowledge,
+# NOT something this bot has measured, except where a note says "backtest".
+
+fresh_days: 7                 # older items are dropped (a type can set its own fresh_days)
+duplicate_window_days: 5      # the same event type for the same stock within this many days = one event
+headline_similarity: 0.6      # two headlines sharing this share of their words are the same story
+known_event_days: 240         # an announced right share / bonus / dividend stays listed this long, until its book closure has passed
+known_dividend_days: 120      # ... a dividend / bonus without a book closure date only this long (older = stale source record)
+unlock_flag_trading_days: 15  # warn when locked promoter / mutual fund shares become sellable within this many trading days
+unlock_calendar_days: 60      # /calendar lists lock-in expiries this many days ahead
+meeting_days: 45              # an AGM / SGM or merger notice stays listed this long
+
+types:
+  book_closure:
+    label: Book closure
+    keywords: ["book close", "book closure"]
+    impact: mixed
+    fresh_days: 14
+    note: "Price often firms up before the book closure and opens lower by about the payout afterwards. Backtest: buying the run-up lost money over the last 2 years, so the bot gives no new plan within 5 trading days before it."
+  promoter_sale:
+    label: Promoter / insider share sale
+    keywords: ["intention for sale", "intention to sell", "sale of share", "sell share", "promoter share"]
+    impact: negative
+    note: "Adds supply; usually a mild drag while the sale is open."
+  right_share:
+    label: Right share
+    keywords: ["right share", "rights share", "right issue"]
+    impact: mixed
+    note: "Often rises on the announcement and adjusts down at book closure; you need cash to take up the rights."
+  merger:
+    label: Merger / acquisition
+    keywords: ["merger", "acquisition", "amalgamation"]
+    impact: mixed
+    note: "Trading can be halted for weeks; the outcome depends on the swap ratio."
+  regulatory:
+    label: Regulatory action
+    keywords: ["suspension", "suspended", "halt", "penalty", "fine imposed", "action taken", "blacklist", "clarification sought"]
+    impact: negative
+    note: "Uncertainty; a trading halt can lock you in."
+  auction:
+    label: Share auction
+    keywords: ["auction"]
+    impact: negative
+    note: "Extra supply, usually a small and short-lived drag."
+  ipo_fpo:
+    label: IPO / FPO / debenture issue
+    keywords: ["fpo", "ipo", "further public", "debenture"]
+    impact: neutral
+    note: "Little effect on the existing shares unless it dilutes them."
+  dividend:
+    label: Dividend / bonus announced
+    keywords: ["dividend", "bonus"]
+    impact: positive
+    note: "Usually supportive until the book closure; much of it is often priced in before the announcement."
+  results:
+    label: Financial results
+    keywords: ["quarterly report", "financial report", "financial statement", "unaudited", "audited", "quarter report", "net profit"]
+    impact: neutral
+    note: "Direction depends on the numbers; the bot reads them into the fundamentals score once published."
+  agm:
+    label: AGM / SGM
+    keywords: ["agm", "sgm", "general meeting"]
+    impact: neutral
+    note: "Mostly formal; it approves the dividend that was already announced."
+  management:
+    label: Management / board change
+    keywords: ["appointment", "appointed", "resignation", "resigned", "elected", "auditor", "company secretary"]
+    impact: neutral
+    routine: true                # listed under /news only, left out of the daily messages
+    note: "Routine; rarely moves the price."
+
+default:
+  label: Other news
+  impact: neutral
+  routine: true
+  note: "No typical price effect."

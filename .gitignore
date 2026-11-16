@@ -1,0 +1,33 @@
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+
+# Personal data and runtime state (Telegram IDs, watchlists, caches)
+data/
+backups/
+charts/
+
+# Logs
+logs/
+*.log
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Tooling
+.claude/
+
+# Large research data that can be rebuilt (python -m nepse_bot.backtest.panel)
+reports/**/panel*.csv.gz
+reports/**/*.pkl
+reports/stage4b/final/signals.csv
+reports/stage4b/final/trades.csv
+reports/broker/**/signals.csv
+reports/broker/**/trades.csv
+reports/monthly/**/signals.csv
+reports/monthly/**/trades.csv
+reports/broker/sample/

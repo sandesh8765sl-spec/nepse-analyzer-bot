@@ -1,0 +1,152 @@
+{
+ "success": true,
+ "code": "SUCCESS",
+ "message": "Fetched Successfully from Share Hub",
+ "data": {
+  "pageIndex": 1,
+  "totalPages": 1,
+  "totalItems": 17,
+  "pageSize": 100,
+  "content": [
+   {
+    "id": 2,
+    "nepseIndexId": 62,
+    "symbol": "FLOAT",
+    "tmsSymbol": "FLOATIND",
+    "name": "Float Index",
+    "isSubIndex": false
+   },
+   {
+    "id": 3,
+    "nepseIndexId": 57,
+    "symbol": "SENSITIVE",
+    "tmsSymbol": "SENSIND",
+    "name": "Sensitive Index",
+    "isSubIndex": false
+   },
+   {
+    "id": 4,
+    "nepseIndexId": 63,
+    "symbol": "SENFLOAT",
+    "tmsSymbol": "SENSFLTIND",
+    "name": "Sensitive Float Index",
+    "isSubIndex": false
+   },
+   {
+    "id": 5,
+    "nepseIndexId": 51,
+    "symbol": "BANKING",
+    "tmsSymbol": "BANKSUBIND",
+    "name": "Banking SubIndex",
+    "isSubIndex": true
+   },
+   {
+    "id": 6,
+    "nepseIndexId": 52,
+    "symbol": "HOTELS",
+    "tmsSymbol": "HOTELIND",
+    "name": "Hotels And Tourism Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 7,
+    "nepseIndexId": 53,
+    "symbol": "OTHERS",
+    "tmsSymbol": "OTHERSIND",
+    "name": "Others Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 8,
+    "nepseIndexId": 54,
+    "symbol": "HYDROPOWER",
+    "tmsSymbol": "HYDPOWIND",
+    "name": "HydroPower Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 9,
+    "nepseIndexId": 55,
+    "symbol": "DEVBANK",
+    "tmsSymbol": "DEVBANKIND",
+    "name": "Development Bank Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 10,
+    "nepseIndexId": 56,
+    "symbol": "MANUFACTURE",
+    "tmsSymbol": "MANPROCIND",
+    "name": "Manufacturing And Processing",
+    "isSubIndex": true
+   },
+   {
+    "id": 11,
+    "nepseIndexId": 59,
+    "symbol": "NONLIFEINSU",
+    "tmsSymbol": "NONLIFIND",
+    "name": "Non Life Insurance",
+    "isSubIndex": true
+   },
+   {
+    "id": 12,
+    "nepseIndexId": 60,
+    "symbol": "FINANCE",
+    "tmsSymbol": "FININD",
+    "name": "Finance Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 13,
+    "nepseIndexId": 61,
+    "symbol": "TRADING",
+    "tmsSymbol": "TRDIND",
+    "name": "Trading Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 14,
+    "nepseIndexId": 64,
+    "symbol": "MICROFINANCE",
+    "tmsSymbol": "MICRFININD",
+    "name": "Microfinance Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 15,
+    "nepseIndexId": 65,
+    "symbol": "LIFEINSU",
+    "tmsSymbol": "LIFINSIND",
+    "name": "Life Insurance",
+    "isSubIndex": true
+   },
+   {
+    "id": 16,
+    "nepseIndexId": 66,
+    "symbol": "MUTUAL",
+    "tmsSymbol": "MUTUALIND",
+    "name": "Mutual Fund",
+    "isSubIndex": true
+   },
+   {
+    "id": 17,
+    "nepseIndexId": 67,
+    "symbol": "INVESTMENT",
+    "tmsSymbol": "INVIDX",
+    "name": "Investment Index",
+    "isSubIndex": true
+   },
+   {
+    "id": 1,
+    "nepseIndexId": 58,
+    "symbol": "NEPSE",
+    "tmsSymbol": "NEPSE",
+    "name": "NEPSE Index",
+    "isSubIndex": false
+   }
+  ],
+  "hasPrevious": false,
+  "hasNext": false
+ },
+ "mask": null
+}

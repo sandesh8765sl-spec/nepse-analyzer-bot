@@ -1,0 +1,29 @@
+# Exit styles and past winners. Written by `python -m nepse_bot.backtest.exits` (Stage 5).
+# Source: reports/stage4b/final/trades.csv; out-of-sample from 2024-11-13. Details: reports/stage5/exit_styles.md
+default_exit_style: trailing
+exit_styles:
+  trailing:
+    tuning: {trades: 1502, win_rate: 41.7, expectancy_pct: 2.9, profit_factor: 1.78}
+    out_of_sample: {trades: 1497, win_rate: 27.7, expectancy_pct: -2.34, profit_factor: 0.45}
+  target:
+    tuning: {trades: 1853, win_rate: 62.3, expectancy_pct: 0.11, profit_factor: 1.04}
+    out_of_sample: {trades: 2019, win_rate: 55.4, expectancy_pct: -1.03, profit_factor: 0.62}
+  hybrid:
+    tuning: {trades: 1627, win_rate: 54.5, expectancy_pct: 0.78, profit_factor: 1.29}
+    out_of_sample: {trades: 1752, win_rate: 44.8, expectancy_pct: -1.52, profit_factor: 0.48}
+winners:   # price gain of past winning trades, % above the entry
+  base_breakout:
+    recent: {count: 86, median_pct: 5.1, top_quarter_pct: 9.9}
+    all: {count: 308, median_pct: 8.1, top_quarter_pct: 17.9}
+  event_runup:
+    recent: {count: 12, median_pct: 5.2, top_quarter_pct: 7.1}
+    all: {count: 53, median_pct: 12.7, top_quarter_pct: 21.1}
+  rs_leader:
+    recent: {count: 74, median_pct: 5.9, top_quarter_pct: 11.9}
+    all: {count: 173, median_pct: 9.2, top_quarter_pct: 16.6}
+  trend_pullback:
+    recent: {count: 165, median_pct: 5.6, top_quarter_pct: 9.8}
+    all: {count: 411, median_pct: 8.1, top_quarter_pct: 18.1}
+  value_turn:
+    recent: {count: 78, median_pct: 5.1, top_quarter_pct: 8.8}
+    all: {count: 97, median_pct: 5.5, top_quarter_pct: 13.5}

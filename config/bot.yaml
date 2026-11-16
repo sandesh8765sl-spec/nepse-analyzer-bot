@@ -1,0 +1,90 @@
+# Bot behaviour switches. Safe to edit; restart the bot afterwards.
+
+features:
+  # The four scans at 10:45, 12:30, 14:30 and 15:30 that scored partial
+  # intraday bars. Switched off in Stage 1; the code is kept, not deleted.
+  intraday_auto_scans: false
+
+cache:
+  # How long a market table fetched DURING the session may be reused.
+  live_table_seconds: 120
+  # How long a full-market scan built DURING the session may be reused.
+  live_universe_minutes: 30
+
+scan:
+  # Parallel downloads during a full-market scan (one web session each).
+  max_workers: 4
+
+http:
+  timeout_seconds: 20
+  # Pause before the single retry after an expired-session (419) or blocked (403) reply.
+  session_retry_backoff_seconds: 2.0
+
+logging:
+  file: logs/bot.log
+  max_megabytes: 5
+  backup_files: 5
+
+# Scheduled messages (Nepal time). Morning brief and evening report go out on
+# trading days only; the weekly summary on the last trading day of the week.
+reports:
+  morning_brief: "10:15"
+  evening_report: "17:30"          # after the 17:00 data update
+  weekly_summary: "18:00"
+  weekly_summary_day: friday
+
+# Daily backup of the database and your own data (python -m nepse_bot.utils.backup; restore: docs/RESTORE.md).
+backup:
+  time: "20:15"                    # also made right after a start if the backup of today is missing
+  keep_days: 14
+  folder: ""                       # empty = the backups folder of the project; may be another drive
+  min_free_mb: 700                 # no backup (and a warning) when the disk has less free space than this
+
+reliability:
+  catch_up_minutes: 10             # how often missed briefs / reports / data updates are checked after sleep
+  min_free_mb_for_downloads: 1500  # the broker-history download stops when the disk has less free space than this
+
+# Daily housekeeping at 06:00 (python -m nepse_bot.utils.maintenance): only things that can be rebuilt.
+maintenance:
+  keep_days: 7                     # chart pictures older than this are deleted
+  keep_log_overflow_days: 30       # old launcher log overflow (logs/*.log.1)
+
+# Monthly re-test: the backtest is run again once per calendar month and the bot
+# SUGGESTS changes. Nothing is applied without the owner's /retest apply.
+retest:
+  check_time: "19:30"              # checked every evening; runs when the month has no re-test yet
+  workers: 4                       # worker processes (the PC has about 8 GB of memory: at most 6)
+
+ingest:
+  # Evening data updates (Nepal time, trading days only). The second run
+  # catches data that sources publish late.
+  run_times: ["15:20", "17:00"]
+  # Politeness: minimum pause between two requests to the same website.
+  min_seconds_between_requests: 1.0
+  max_retries: 4
+  backoff_seconds: 2.0
+  # How many companies' quarterly reports to re-check per evening run.
+  # All companies are cycled through in turn.
+  fundamentals_per_run: 80
+  # Raw sample responses kept for debugging (days).
+  raw_sample_keep_days: 7
+  # Historical broker data from Chukul. The bot downloads it by itself in the background
+  # (nepse_bot/ingest/broker_worker.py); progress is in /status.
+  broker_backfill:
+    auto: true                   # false = the bot does not download by itself
+    since: "2022-02-01"          # Chukul has nothing earlier
+    workers: 1                   # pages downloaded at the same time
+    pause_seconds: 0.95          # the site refuses more than about 1 request a second
+    start_delay_seconds: 90      # wait this long after the bot starts
+    pause_windows: ["15:15-17:45"]   # trading days: the data updates and the evening scan come first
+    pause_in_market_hours: auto  # auto = only after a live alert check was slow; always; never
+    slow_alert_seconds: 30       # "slow" for the line above
+    connectivity_check_minutes: 3    # how often the internet connection is checked
+    retry_failed_day_minutes: 60 # a day that failed is tried again after this
+    give_up_after_attempts: 6    # ... and left out after this many failures (counted in the final message)
+    complete_min_volume_percent: 99  # a saved day must cover this much of the traded volume, or it is downloaded again
+    keep_pc_awake: true          # while downloading, Windows does not fall asleep on idle (lid and power button still work)
+    recheck_minutes: 30          # when complete: how often to look for a new missing day
+    backtest_workers: 4          # the automatic backtest after the download (at most 6: the PC has about 8 GB)
+    backtest_start: "2022-03-01"
+    backtest_quiet_hours: "10:30-17:45"   # the backtest never STARTS in these hours on a trading day

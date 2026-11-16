@@ -1,0 +1,719 @@
+{
+ "success": true,
+ "code": "SUCCESS",
+ "message": "Fetched Successfully from Share Hub",
+ "data": [
+  {
+   "id": 7188,
+   "symbol": "NABIL",
+   "fiscalYear": "083/084",
+   "quarter": "q1",
+   "values": [
+    {
+     "key": "eps",
+     "value": 33.89,
+     "valueString": null
+    },
+    {
+     "key": "eps_a",
+     "value": 33.89,
+     "valueString": null
+    },
+    {
+     "key": "dps",
+     "value": 22.08,
+     "valueString": null
+    },
+    {
+     "key": "net_worth",
+     "value": 233.9,
+     "valueString": null
+    },
+    {
+     "key": "dps_pe",
+     "value": 24.77,
+     "valueString": null
+    },
+    {
+     "key": "roe",
+     "value": 13.99,
+     "valueString": null
+    },
+    {
+     "key": "roa",
+     "value": 1.33,
+     "valueString": null
+    },
+    {
+     "key": "net_profit",
+     "value": 2555105000,
+     "valueString": null
+    },
+    {
+     "key": "operating_profit",
+     "value": 3671949000,
+     "valueString": null
+    },
+    {
+     "key": "distributable_profit",
+     "value": 2264567000,
+     "valueString": null
+    },
+    {
+     "key": "net_dps_profit",
+     "value": 1370727000,
+     "valueString": null
+    },
+    {
+     "key": "paidup_capital",
+     "value": 33409847000,
+     "valueString": null
+    },
+    {
+     "key": "reserve",
+     "value": 35777246000,
+     "valueString": null
+    },
+    {
+     "key": "reserve_surplus",
+     "value": 38041813000,
+     "valueString": null
+    },
+    {
+     "key": "retained_earning",
+     "value": 2264567000,
+     "valueString": null
+    },
+    {
+     "key": "total_equity",
+     "value": 71451660000,
+     "valueString": null
+    },
+    {
+     "key": "total_assets",
+     "value": 775666476000,
+     "valueString": null
+    },
+    {
+     "key": "total_liabilities",
+     "value": 704214817000,
+     "valueString": null
+    },
+    {
+     "key": "deposit",
+     "value": 619231995000,
+     "valueString": null
+    },
+    {
+     "key": "loan",
+     "value": 476013619000,
+     "valueString": null
+    },
+    {
+     "key": "loan_and_advance_bfi",
+     "value": 17323648000,
+     "valueString": null
+    },
+    {
+     "key": "npl",
+     "value": 4.06,
+     "valueString": null
+    },
+    {
+     "key": "capital_fund_to_rwa",
+     "value": 11.67,
+     "valueString": null
+    },
+    {
+     "key": "cd_ratio",
+     "value": 80.01,
+     "valueString": null
+    },
+    {
+     "key": "base_rate",
+     "value": 4.41,
+     "valueString": null
+    },
+    {
+     "key": "cost_of_fund",
+     "value": 2.92,
+     "valueString": null
+    },
+    {
+     "key": "interest_spread",
+     "value": 3.17,
+     "valueString": null
+    },
+    {
+     "key": "net_interest_income",
+     "value": 4737012000,
+     "valueString": null
+    },
+    {
+     "key": "net_fee_commission_income",
+     "value": 919499000,
+     "valueString": null
+    },
+    {
+     "key": "cash",
+     "value": 8457616000,
+     "valueString": null
+    }
+   ]
+  },
+  {
+   "id": 6079,
+   "symbol": "NABIL",
+   "fiscalYear": "082/083",
+   "quarter": "q1",
+   "values": [
+    {
+     "key": "eps",
+     "value": 25.49,
+     "valueString": null
+    },
+    {
+     "key": "eps_a",
+     "value": 25.49,
+     "valueString": null
+    },
+    {
+     "key": "dps",
+     "value": 30.15,
+     "valueString": null
+    },
+    {
+     "key": "net_worth",
+     "value": 240.72,
+     "valueString": null
+    },
+    {
+     "key": "dps_pe",
+     "value": 16.88,
+     "valueString": null
+    },
+    {
+     "key": "roe",
+     "value": 10.7,
+     "valueString": null
+    },
+    {
+     "key": "roa",
+     "value": 1.05,
+     "valueString": null
+    },
+    {
+     "key": "net_profit",
+     "value": 1756991000,
+     "valueString": null
+    },
+    {
+     "key": "operating_profit",
+     "value": 2579886000,
+     "valueString": null
+    },
+    {
+     "key": "distributable_profit",
+     "value": 5635298000,
+     "valueString": null
+    },
+    {
+     "key": "net_dps_profit",
+     "value": 862239000,
+     "valueString": null
+    },
+    {
+     "key": "paidup_capital",
+     "value": 27056997000,
+     "valueString": null
+    },
+    {
+     "key": "reserve",
+     "value": 32439874000,
+     "valueString": null
+    },
+    {
+     "key": "reserve_surplus",
+     "value": 38075172000,
+     "valueString": null
+    },
+    {
+     "key": "retained_earning",
+     "value": 5635298000,
+     "valueString": null
+    },
+    {
+     "key": "total_equity",
+     "value": 65132168000,
+     "valueString": null
+    },
+    {
+     "key": "total_assets",
+     "value": 675523589000,
+     "valueString": null
+    },
+    {
+     "key": "total_liabilities",
+     "value": 610391361000,
+     "valueString": null
+    },
+    {
+     "key": "deposit",
+     "value": 556618505000,
+     "valueString": null
+    },
+    {
+     "key": "loan",
+     "value": 421026606000,
+     "valueString": null
+    },
+    {
+     "key": "loan_and_advance_bfi",
+     "value": 15049512000,
+     "valueString": null
+    },
+    {
+     "key": "npl",
+     "value": 4.31,
+     "valueString": null
+    },
+    {
+     "key": "capital_fund_to_rwa",
+     "value": 12.67,
+     "valueString": null
+    },
+    {
+     "key": "cd_ratio",
+     "value": 78.14,
+     "valueString": null
+    },
+    {
+     "key": "base_rate",
+     "value": 5.58,
+     "valueString": null
+    },
+    {
+     "key": "cost_of_fund",
+     "value": 4.13,
+     "valueString": null
+    },
+    {
+     "key": "interest_spread",
+     "value": 3.51,
+     "valueString": null
+    },
+    {
+     "key": "net_interest_income",
+     "value": 3901260000,
+     "valueString": null
+    },
+    {
+     "key": "net_fee_commission_income",
+     "value": 798728000,
+     "valueString": null
+    },
+    {
+     "key": "cash",
+     "value": 10549572000,
+     "valueString": null
+    }
+   ]
+  },
+  {
+   "id": 5082,
+   "symbol": "NABIL",
+   "fiscalYear": "081/082",
+   "quarter": "q1",
+   "values": [
+    {
+     "key": "eps",
+     "value": 30.4,
+     "valueString": null
+    },
+    {
+     "key": "eps_a",
+     "value": 30.4,
+     "valueString": null
+    },
+    {
+     "key": "dps",
+     "value": 20.96,
+     "valueString": null
+    },
+    {
+     "key": "net_worth",
+     "value": 229.48,
+     "valueString": null
+    },
+    {
+     "key": "roe",
+     "value": 13.25,
+     "valueString": null
+    },
+    {
+     "key": "roa",
+     "value": 1.41,
+     "valueString": null
+    },
+    {
+     "key": "net_profit",
+     "value": 2056590000,
+     "valueString": null
+    },
+    {
+     "key": "operating_profit",
+     "value": 2893459000,
+     "valueString": null
+    },
+    {
+     "key": "distributable_profit",
+     "value": 4981236000,
+     "valueString": null
+    },
+    {
+     "key": "paidup_capital",
+     "value": 27056997000,
+     "valueString": null
+    },
+    {
+     "key": "reserve",
+     "value": 30052613000,
+     "valueString": null
+    },
+    {
+     "key": "retained_earning",
+     "value": 4981236000,
+     "valueString": null
+    },
+    {
+     "key": "total_assets",
+     "value": 584191456000,
+     "valueString": null
+    },
+    {
+     "key": "total_liabilities",
+     "value": 522100610000,
+     "valueString": null
+    },
+    {
+     "key": "deposit",
+     "value": 479455141000,
+     "valueString": null
+    },
+    {
+     "key": "loan",
+     "value": 381289067000,
+     "valueString": null
+    },
+    {
+     "key": "npl",
+     "value": 1.42,
+     "valueString": null
+    },
+    {
+     "key": "capital_fund_to_rwa",
+     "value": 12.64,
+     "valueString": null
+    },
+    {
+     "key": "cd_ratio",
+     "value": 81.71,
+     "valueString": null
+    },
+    {
+     "key": "base_rate",
+     "value": 7.02,
+     "valueString": null
+    },
+    {
+     "key": "cost_of_fund",
+     "value": 5.31,
+     "valueString": null
+    },
+    {
+     "key": "interest_spread",
+     "value": 3.98,
+     "valueString": null
+    },
+    {
+     "key": "net_interest_income",
+     "value": 4140285000,
+     "valueString": null
+    },
+    {
+     "key": "net_fee_commission_income",
+     "value": 751484000,
+     "valueString": null
+    }
+   ]
+  },
+  {
+   "id": 2812,
+   "symbol": "NABIL",
+   "fiscalYear": "080/081",
+   "quarter": "q1",
+   "values": [
+    {
+     "key": "eps",
+     "value": 21.72,
+     "valueString": null
+    },
+    {
+     "key": "dps",
+     "value": 13.34,
+     "valueString": null
+    },
+    {
+     "key": "net_worth",
+     "value": 218.27,
+     "valueString": null
+    },
+    {
+     "key": "roe",
+     "value": 9.95,
+     "valueString": null
+    },
+    {
+     "key": "roa",
+     "value": 1.17,
+     "valueString": null
+    },
+    {
+     "key": "net_profit",
+     "value": 1469300000,
+     "valueString": null
+    },
+    {
+     "key": "operating_profit",
+     "value": 2126142000,
+     "valueString": null
+    },
+    {
+     "key": "distributable_profit",
+     "value": 3609801000,
+     "valueString": null
+    },
+    {
+     "key": "paidup_capital",
+     "value": 27056997000,
+     "valueString": null
+    },
+    {
+     "key": "reserve",
+     "value": 28390497000,
+     "valueString": null
+    },
+    {
+     "key": "retained_earning",
+     "value": 3609801000,
+     "valueString": null
+    },
+    {
+     "key": "total_assets",
+     "value": 502753194000,
+     "valueString": null
+    },
+    {
+     "key": "total_liabilities",
+     "value": 443695900000,
+     "valueString": null
+    },
+    {
+     "key": "deposit",
+     "value": 414853856000,
+     "valueString": null
+    },
+    {
+     "key": "loan",
+     "value": 353566488000,
+     "valueString": null
+    },
+    {
+     "key": "npl",
+     "value": 3.69,
+     "valueString": null
+    },
+    {
+     "key": "capital_fund_to_rwa",
+     "value": 11.86,
+     "valueString": null
+    },
+    {
+     "key": "cd_ratio",
+     "value": 86.53,
+     "valueString": null
+    },
+    {
+     "key": "base_rate",
+     "value": 9.58,
+     "valueString": null
+    },
+    {
+     "key": "cost_of_fund",
+     "value": 7.89,
+     "valueString": null
+    },
+    {
+     "key": "interest_spread",
+     "value": 3.99,
+     "valueString": null
+    },
+    {
+     "key": "net_interest_income",
+     "value": 4173946000,
+     "valueString": null
+    },
+    {
+     "key": "net_fee_commission_income",
+     "value": 755376000,
+     "valueString": null
+    }
+   ]
+  },
+  {
+   "id": 2808,
+   "symbol": "NABIL",
+   "fiscalYear": "079/080",
+   "quarter": "q1",
+   "values": [
+    {
+     "key": "eps",
+     "value": 27.53,
+     "valueString": null
+    },
+    {
+     "key": "net_worth",
+     "value": 233.28,
+     "valueString": null
+    },
+    {
+     "key": "roe",
+     "value": 11.8,
+     "valueString": null
+    },
+    {
+     "key": "roa",
+     "value": 1.49,
+     "valueString": null
+    },
+    {
+     "key": "net_profit",
+     "value": 1571537000,
+     "valueString": null
+    },
+    {
+     "key": "operating_profit",
+     "value": 2230446000,
+     "valueString": null
+    },
+    {
+     "key": "distributable_profit",
+     "value": 5916174000,
+     "valueString": null
+    },
+    {
+     "key": "paidup_capital",
+     "value": 22832909000,
+     "valueString": null
+    },
+    {
+     "key": "share_premium",
+     "value": 176000,
+     "valueString": null
+    },
+    {
+     "key": "reserve",
+     "value": 27514257000,
+     "valueString": null
+    },
+    {
+     "key": "retained_earning",
+     "value": 2916174000,
+     "valueString": null
+    },
+    {
+     "key": "total_assets",
+     "value": 421081534000,
+     "valueString": null
+    },
+    {
+     "key": "total_liabilities",
+     "value": 367818018000,
+     "valueString": null
+    },
+    {
+     "key": "deposit",
+     "value": 334095240000,
+     "valueString": null
+    },
+    {
+     "key": "loan",
+     "value": 305696739000,
+     "valueString": null
+    },
+    {
+     "key": "npl",
+     "value": 2.33,
+     "valueString": null
+    },
+    {
+     "key": "capital_fund_to_rwa",
+     "value": 13.35,
+     "valueString": null
+    },
+    {
+     "key": "cd_ratio",
+     "value": 90.37,
+     "valueString": null
+    },
+    {
+     "key": "base_rate",
+     "value": 9.45,
+     "valueString": null
+    },
+    {
+     "key": "cost_of_fund",
+     "value": 7.91,
+     "valueString": null
+    },
+    {
+     "key": "interest_spread",
+     "value": 4.03,
+     "valueString": null
+    },
+    {
+     "key": "net_interest_income",
+     "value": 3677179000,
+     "valueString": null
+    },
+    {
+     "key": "net_fee_commission_income",
+     "value": 628406000,
+     "valueString": null
+    }
+   ]
+  },
+  {
+   "id": 6894,
+   "symbol": "NABIL",
+   "fiscalYear": "082/083",
+   "quarter": "q4",
+   "values": []
+  },
+  {
+   "id": 6628,
+   "symbol": "NABIL",
+   "fiscalYear": "082/083",
+   "quarter": "q3",
+   "values": []
+  },
+  {
+   "id": 6377,
+   "symbol": "NABIL",
+   "fiscalYear": "082/083",
+   "quarter": "q2",
+   "values": []
+  }
+ ],
+ "mask": null
+}

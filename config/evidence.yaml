@@ -1,0 +1,21 @@
+# Backtest record of each setup, after commission, fees and tax.
+# Source: reports/stage4b/final (run 2026-11-14). Refresh: see docs/BACKTEST.md.
+setups:
+  trend_pullback:
+    recent: {period: "2024-11-13 to 2026-11-13", trades: 561, win_rate: 29.6, avg_win_pct: 7.4, avg_loss_pct: -6.02, expectancy_pct: -2.05, profit_factor: 0.51}
+    earlier: {period: "2020-01-07 to 2024-11-13", trades: 603, win_rate: 40.8, avg_win_pct: 15.92, avg_loss_pct: -6.37, expectancy_pct: 2.72, profit_factor: 1.74}
+  base_breakout:
+    recent: {period: "2024-11-13 to 2026-11-13", trades: 435, win_rate: 20.5, avg_win_pct: 7.3, avg_loss_pct: -6.51, expectancy_pct: -3.68, profit_factor: 0.29}
+    earlier: {period: "2020-01-07 to 2024-11-13", trades: 549, win_rate: 40.4, avg_win_pct: 15.78, avg_loss_pct: -6.37, expectancy_pct: 2.59, profit_factor: 1.69}
+  rs_leader:
+    recent: {period: "2024-11-13 to 2026-11-13", trades: 250, win_rate: 29.6, avg_win_pct: 8.2, avg_loss_pct: -6.14, expectancy_pct: -1.9, profit_factor: 0.57}
+    earlier: {period: "2020-01-07 to 2024-11-13", trades: 194, win_rate: 51, avg_win_pct: 15.1, avg_loss_pct: -6.24, expectancy_pct: 4.65, profit_factor: 2.43}
+  value_turn:
+    recent: {period: "2024-11-13 to 2026-11-13", trades: 244, win_rate: 32.4, avg_win_pct: 6.38, avg_loss_pct: -5.04, expectancy_pct: -1.34, profit_factor: 0.58}
+    earlier: {period: "2020-01-07 to 2024-11-13", trades: 45, win_rate: 42.2, avg_win_pct: 21.06, avg_loss_pct: -5.01, expectancy_pct: 6, profit_factor: 3.25}
+  broker_accumulation:
+    recent: {period: "2024-11-13 to 2026-11-13", trades: 0}
+    earlier: {period: "2020-01-07 to 2024-11-13", trades: 0}
+  event_runup:
+    recent: {period: "2024-11-13 to 2026-11-13", trades: 37, win_rate: 32.4, avg_win_pct: 5.22, avg_loss_pct: -5.36, expectancy_pct: -1.93, profit_factor: 0.39}
+    earlier: {period: "2020-01-07 to 2024-11-13", trades: 111, win_rate: 36.9, avg_win_pct: 15.55, avg_loss_pct: -7.4, expectancy_pct: 1.08, profit_factor: 1.19}

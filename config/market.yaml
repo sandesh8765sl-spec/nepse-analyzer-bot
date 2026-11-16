@@ -1,0 +1,53 @@
+# NEPSE market rules. Every value here can change, so nothing in the code
+# hard-codes them. Each value carries its source and the date it was recorded.
+# "owner" = supplied by the bot owner in the upgrade instructions (2026-11-13).
+# Items marked VERIFY have not been independently confirmed yet.
+
+timezone: Asia/Kathmandu   # UTC+05:45. Source: owner, 2026-11-13.
+
+# Days the exchange is open. Monday-Friday since 6 April 2026 (was Sunday-Thursday).
+# Source: owner, 2026-11-13. Cross-checked against the bot's own logs on 2026-11-13:
+# live market data appeared on Fridays and never on Sundays (June-Nov 2026).
+trading_days: [monday, tuesday, wednesday, thursday, friday]
+
+trading_hours:
+  open: "11:00"            # Source: owner, 2026-11-13.
+  close: "15:00"           # Source: owner, 2026-11-13.
+  pre_open_start: "10:30"  # VERIFY. Source: owner, 2026-11-13.
+  pre_open_end: "10:45"    # VERIFY. Source: owner, 2026-11-13.
+
+after_market_orders_allowed: true   # Source: owner, 2026-11-13.
+
+# Daily price limit per stock. Backtests must pick the rule in force on each date.
+daily_price_limit:
+  - {from: "1900-01-01", percent: 10}   # Source: owner, 2026-11-13.
+  - {from: "2026-04-20", percent: 15}   # Source: owner, 2026-11-13.
+
+index_circuit_breaker:                  # Source: owner, 2026-11-13.
+  - {move_percent: 5, action: "15-minute halt"}
+  - {move_percent: 8, action: "closed for the day"}
+
+settlement_days: 2            # T+2. Source: owner, 2026-11-13.
+earliest_sell_after_days: 2   # No same-day selling. Source: owner, 2026-11-13.
+board_lot: 10                 # VERIFY. Source: owner, 2026-11-13.
+
+# Broker commission for equity, by trade amount in rupees.
+# TO CONFIRM WITH BROKER - sources disagree slightly. Source: owner, 2026-11-13.
+broker_commission:
+  minimum_rupees: 10
+  tiers:
+    - {up_to: 50000, percent: 0.36}
+    - {up_to: 500000, percent: 0.33}
+    - {up_to: 2000000, percent: 0.31}
+    - {up_to: 10000000, percent: 0.27}
+    - {up_to: null, percent: 0.24}
+
+sebon_fee_percent: 0.015            # On buy and on sell. Source: owner, 2026-11-13.
+dp_charge_rupees: 25                # Per stock per sell day. Source: owner, 2026-11-13.
+
+# Capital gains tax for individuals. Changed three times in 2026.
+capital_gains_tax:                  # Source: owner, 2026-11-13 (in force from 2026-09-22).
+  short_term_percent: 5             # Held 365 days or fewer.
+  long_term_percent: 3.75           # Held more than 365 days.
+  long_term_after_days: 365
+  loss_netting: false

@@ -1,0 +1,11 @@
+# Days NEPSE is closed even though they fall on a normal trading day.
+# Edit by hand, or use /holiday add YYYY-MM-DD reason in Telegram.
+holidays:
+- date: '2026-11-09'
+  reason: 'Auto-detected: no trading on NEPSE'
+- date: '2026-11-10'
+  reason: 'Auto-detected: no trading on NEPSE'
+- date: '2026-11-11'
+  reason: 'Auto-detected: no trading on NEPSE'
+- date: '2026-11-12'
+  reason: 'Auto-detected: no trading on NEPSE'

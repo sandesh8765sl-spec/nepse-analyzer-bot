@@ -1,0 +1,21 @@
+# Exact versions the bot was tested with (2026-11-14, Python 3.11).
+# Install: venv\Scripts\python.exe -m pip install -r requirements.txt
+pandas==2.3.3
+numpy==2.4.4
+requests==2.33.1
+cloudscraper==1.2.71
+beautifulsoup4==4.14.3
+lxml==6.1.0
+pydantic==2.13.4
+python-telegram-bot[job-queue]==22.7
+python-dotenv==1.2.2
+pyyaml==6.0.3
+# /chart pictures
+matplotlib==3.10.9
+# Order simulation for the backtest and the live journal
+backtesting==0.6.6
+# NEPSE's own website, through the open-source NepseUnofficialApi (pinned to the tested commit)
+nepse @ git+https://github.com/basic-bgnr/NepseUnofficialApi@180a550c60f1959983b854659e650a4c189a3c0f
+
+# Development only (running the tests)
+pytest==9.2.0

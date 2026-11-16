@@ -1,0 +1,22 @@
+# How often each alert type would have fired in the backtest, and how those trades ended (after fees and tax).
+# Written by `python -m nepse_bot.backtest.alerts` from reports/stage4b/final. Recent = 2024-11-13 to 2026-11-13; earlier = before that.
+# Early alerts are NOT backtested: they need intraday prices, which the database does not hold.
+recent_period: "2024-11-13 to 2026-11-13"
+earlier_period: "2020-01-07 to 2024-11-13"
+alerts:
+  strong:
+    recent: {alerts: 0, finished: 0}
+    earlier: {alerts: 0, finished: 0}
+  toppick:
+    recent: {alerts: 76, finished: 66, win_rate: 31.8, expectancy_pct: -1.07, net_rupees: -69077.0, profit_factor: 0.57}
+    earlier: {alerts: 4, finished: 4, win_rate: 0.0, expectancy_pct: -5.36, net_rupees: -17635.0, profit_factor: 0.0}
+  all_candidates:
+    recent: {alerts: 5429, finished: 5140, win_rate: 29.2, expectancy_pct: -2.2, net_rupees: -10705576.0, profit_factor: 0.45}
+    earlier: {alerts: 3996, finished: 3995, win_rate: 43.6, expectancy_pct: 3.54, net_rupees: 12677381.0, profit_factor: 1.97}
+coverage: {days: 454, days_with_a_plan: 450, percent_of_days: 99.1, candidates_per_day: 12.0, resistance_close_percent: 99.0}   # recent period: days with at least one candidate that has a plan
+holding:   # trading days a finished backtest trade was held, per setup
+  base_breakout: {trades: 1287, median: 11, p25: 6, p75: 20, winners_median: 21}
+  event_runup: {trades: 890, median: 12, p25: 7, p75: 22, winners_median: 22}
+  rs_leader: {trades: 2834, median: 15, p25: 9, p75: 23, winners_median: 24}
+  trend_pullback: {trades: 2517, median: 16, p25: 11, p75: 27, winners_median: 27}
+  value_turn: {trades: 1607, median: 14, p25: 9, p75: 22, winners_median: 22}

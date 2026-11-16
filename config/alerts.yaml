@@ -1,0 +1,47 @@
+# Automatic alerts (Stage 5b). Every number the alerts decide with is here.
+# Safe to edit; restart the bot afterwards. Switch alert types on or off in
+# Telegram with /settings alerts (stored in the database, not here).
+
+defaults:                 # used until you change them with /settings alerts
+  strong: true            # STRONG BUY / BUY alerts after the evening scan
+  early: true             # EARLY alerts during the session (+ CONFIRMED / CANCELLED in the evening)
+  toppick: true           # at most one TOP PICK (speculative) per day
+
+no_repeat_trading_days: 10      # the same stock is not alerted again within this many trading days ...
+material_change_percent: 3      # ... unless the entry or the stop moved by at least this much, or the setup or grade changed
+max_buy_alerts_per_day: 3       # STRONG BUY / BUY alerts per evening (best first)
+
+# ---------------------------------------------------------------- early alerts
+# Stricter than the end-of-day rules, because the day can still reverse.
+early:
+  require_proven_setup: true        # only for setups graded BUY (made money in both backtest periods).
+                                    # While no setup is proven, early alerts stay silent. false = also SPECULATIVE setups.
+  start_time: "12:30"               # never before this (at least 90 minutes into the session)
+  check_minutes: 5                  # how often live prices are checked
+  hold_above_trigger_percent: 1     # price must be at least this far above the trigger level ...
+  hold_minutes: 30                  # ... for at least this long, without a break
+  max_sample_gap_minutes: 12        # a longer gap between two price checks (PC asleep) resets the 30 minutes
+  volume_pace_multiple: 2           # volume so far, projected to the full day, vs the normal full-day volume
+  max_above_trigger_percent: 4      # "don't buy above" = trigger + this; no alert above it
+  max_day_gain_percent: 7           # no alert when the stock is already up more than this today
+  price_limit_margin_percent: 2     # ... or within this of the daily price limit
+  max_index_fall_percent: 1         # no alert when NEPSE is down more than this today
+  max_per_day: 2
+  first_part_fraction: 0.5          # suggest buying this share now, the rest after confirmation
+  review_after_signals: 20          # compare early alerts with end-of-day signals after this many finished ones
+
+# ------------------------------------------------------------------- top pick
+# The single best SPECULATIVE candidate, only if it passes ALL of these.
+top_pick:
+  min_score: 80                     # and the score must rest on full data
+  # The reference target does not filter a top pick; a close resistance only ranks it slightly lower (config/engine.yaml -> plan).
+  max_avg_range_percent: 2.5        # "calm stock": average daily high-low range, % of price (the one pattern that held in the backtest)
+  holding_window_sessions: 40       # no book closure, right share or other price-adjusting event inside this window
+  max_per_day: 1
+
+# ------------------------------------------------------------- protection mode
+# After a losing streak or a portfolio drop: a warning, and TOP PICK alerts are paused.
+protection:
+  losing_trades_in_a_row: 3         # the last N recorded sales (/sold) all lost money
+  portfolio_drop_percent: 8         # portfolio value this far below its highest value
+  pause_sessions: 5                 # TOP PICK alerts are held back for this many trading sessions

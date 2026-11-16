@@ -1,0 +1,160 @@
+{
+ "success": true,
+ "code": "SUCCESS",
+ "message": "Fetched Successfully from Share Hub",
+ "data": {
+  "pageIndex": 1,
+  "totalPages": 2,
+  "totalItems": 943,
+  "pageSize": 500,
+  "content": [
+   {
+    "id": 1124,
+    "nepseId": 9357,
+    "symbol": "NICEF",
+    "name": "NIC ASIA Equity Opportunity Fund",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Mutual Fund",
+    "group": null,
+    "sector": "Commercial Banks",
+    "isPromoter": false
+   },
+   {
+    "id": 1123,
+    "nepseId": 9356,
+    "symbol": "BENH",
+    "name": "Beni Hydropower Project Limited",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Equity",
+    "group": "G",
+    "sector": "Hydro Power",
+    "isPromoter": false
+   },
+   {
+    "id": 1122,
+    "nepseId": 9355,
+    "symbol": "LSD92",
+    "name": "7% Laxmi Sunrise Debenture 2092",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Non-Convertible Debenture",
+    "group": "Z",
+    "sector": "Commercial Banks",
+    "isPromoter": false
+   },
+   {
+    "id": 1121,
+    "nepseId": 9354,
+    "symbol": "PBD93",
+    "name": "6.25% Prime Bank Debenture, 2093",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Non-Convertible Debenture",
+    "group": null,
+    "sector": "Commercial Banks",
+    "isPromoter": false
+   },
+   {
+    "id": 1120,
+    "nepseId": 9353,
+    "symbol": "SAPIL",
+    "name": "Sarvottam Paints Industries Limited",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Equity",
+    "group": "G",
+    "sector": "Manufacturing And Processing",
+    "isPromoter": false
+   },
+   {
+    "id": 1119,
+    "nepseId": 9352,
+    "symbol": "MEPDL",
+    "name": "Mount Everest Power Development Limited",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Equity",
+    "group": "G",
+    "sector": "Hydro Power",
+    "isPromoter": false
+   },
+   {
+    "id": 1118,
+    "nepseId": 9351,
+    "symbol": "RSY2",
+    "name": "Reliable Samriddhi Yojana -2",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Mutual Fund",
+    "group": null,
+    "sector": "Life Insurance",
+    "isPromoter": false
+   },
+   {
+    "id": 1117,
+    "nepseId": 9350,
+    "symbol": "LSH12",
+    "name": "LS Horizon 12",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Mutual Fund",
+    "group": null,
+    "sector": "Commercial Banks",
+    "isPromoter": false
+   },
+   {
+    "id": 1116,
+    "nepseId": 9349,
+    "symbol": "SAEF2",
+    "name": "Sanima Equity Fund-2",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Mutual Fund",
+    "group": null,
+    "sector": "Commercial Banks",
+    "isPromoter": false
+   },
+   {
+    "id": 1115,
+    "nepseId": 9348,
+    "symbol": "SEF2",
+    "name": "Siddhartha Equity Fund 2",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Mutual Fund",
+    "group": "Z",
+    "sector": "Commercial Banks",
+    "isPromoter": false
+   },
+   {
+    "id": 1114,
+    "nepseId": 9347,
+    "symbol": "ECL",
+    "name": "Everest Colour Limited",
+    "securityName": null,
+    "activeStatus": "A",
+    "instrument": "Equity",
+    "group": "G",
+    "sector": "Manufacturing And Processing",
+    "isPromoter": false
+   },
+   {
+    "id": 1113,
+    "nepseId": 100013,
+    "symbol": "GSYA",
+    "name": "Garima Subarna Yojana",
+    "securityName": null,
+    "activeStatus": "N",
+    "instrument": "Open Ended Mutual Fund (SIP)",
+    "group": "Z",
+    "sector": "Mutual Fund",
+    "isPromoter": false
+   }
+  ],
+  "hasPrevious": false,
+  "hasNext": true
+ },
+ "mask": null
+}

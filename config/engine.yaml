@@ -1,0 +1,159 @@
+# Analysis engine settings. Everything the engine decides with a number is here.
+# Safe to edit; restart the bot afterwards. Values were reset in Stage 4b (2026-11-14) from
+# the research in reports/stage4b/ (summary: docs/RESEARCH.md), on the owner's instruction.
+
+# ---------------------------------------------------------------- your profile
+# Defaults only. Change them in Telegram with /settings (stored in the database).
+profile:
+  total_capital: 500000        # Rs you trade with in total
+  min_position: 50000          # smallest position worth taking
+  max_position: 100000         # largest position per stock
+  max_open_positions: 5
+  risk_percent: 2.0            # % of total capital you accept losing on one trade
+  risk_rupees: null            # set a fixed Rs amount to use instead of the percentage
+
+# ------------------------------------------------------------- market regime
+# Stage 4b (docs/RESEARCH.md): the BULL/NEUTRAL/BEAR label did NOT predict the next
+# weeks (BULL days were followed by gains in 3 of 7 years and losses in 4), so the
+# label no longer changes the score a stock needs. The one pattern that held in 5 of
+# 7 years: buying when most stocks are already far above their 50-day average does badly.
+regime:
+  bull_score: 60               # regime score at or above this = BULL (shown for information)
+  bear_score: 40               # regime score at or below this = BEAR
+  buy_threshold:               # stock score needed for a candidate with a plan
+    BULL: 65
+    NEUTRAL: 65
+    BEAR: 65
+  max_new_positions_per_day:
+    BULL: 2
+    NEUTRAL: 2
+    BEAR: 2
+  overheated_pct_above_ma50: 75          # "overheated" when this % of stocks is above its 50-day average
+  max_new_positions_when_overheated: 1
+  strong_buy_margin: 10        # points above the threshold for STRONG BUY (proven setups only)
+
+# ------------------------------------------------------------ universe filter
+universe:
+  min_avg_turnover_20: 5000000     # Rs 50 lakh
+  min_traded_days_pct_60: 80
+  min_listed_trading_days: 120
+  include_mutual_funds: false
+  include_promoter_shares: false
+  book_closure_block_days: 5       # no new BUY this many trading days before a book closure
+  operator_risk:
+    broker_share_percent: 40       # one broker's share of buy volume over 5 days
+    price_gain_5d_percent: 20
+    upper_limit_days_in_10: 3      # days near the upper price limit ...
+    thin_turnover: 2500000         # ... on turnover below this (Rs 25 lakh)
+    gain_20d_percent: 50           # "huge gain" for the broker-diversity check
+    min_broker_days: 3             # broker data needed before broker checks run
+
+# -------------------------------------------------------------------- scoring
+weights:                           # must add up to 100
+  trend: 25
+  momentum: 15
+  relative_strength: 15
+  volume_flow: 15
+  fundamentals: 20
+  setup_quality: 10
+
+scoring:
+  overextended_above_ema20_percent: 15
+  overextended_rsi: 75
+  fundamentals_max_age_days: 460   # older reports count as missing
+  min_sector_peers: 5              # fewer companies WITH the number than this: compare with the whole market
+  market_median_sectors: [Others]  # mixed-bag sectors: always compared with the whole market
+  broker_days_needed: 5            # broker data needed for the broker part of the volume score
+  confidence_high: 0.90            # share of the score that rests on real data
+  confidence_medium: 0.75
+
+verdicts:
+  avoid_below_score: 45
+  avoid_trend_below: 35
+  weak_fundamentals_below: 35
+
+# --------------------------------------------------------------------- setups
+# Stage 4b: setups are ON so the bot always shows ranked candidates, but every candidate
+# carries its setup's real backtest record (config/evidence.yaml). A setup that has not
+# made money in both test periods is labelled SPECULATIVE, never BUY.
+setups:
+  trend_pullback: true
+  base_breakout: true
+  rs_leader: true
+  value_turn: true
+  broker_accumulation: false       # OFF until its backtest passes the gate; the bot runs that test by itself when the broker history is complete
+  event_runup: false               # book-closure announcement dates are not reliable enough to test
+  breakout_volume_multiple: 1.5
+  breakout_base_days: [20, 60]
+  breakout_max_base_range_percent: 20
+  rs_leader_min_rank: 90
+  rs_leader_near_high_percent: 10
+  broker_accumulation_min_days: 10
+
+# ------------------------------------------------------- broker buying as a filter
+# Tested by the bot itself when the broker history is complete (nepse_bot/backtest/broker_study.py).
+# The two "filter_" lines are switched on ONLY by that test, and only if the gate is passed.
+broker_filter:
+  min_top5_net_share: 15           # "broker buying" = the top 5 brokers net bought at least this % of the volume over 10 days
+  filter_setups: []                # setups whose candidates WITH broker buying are graded by their own record ("<setup>_broker" in evidence.yaml)
+  filter_top_pick: false           # true = a TOP PICK also needs broker buying
+
+# ----------------------------------------------------------------- trade plan
+# Stage 4b redesign. The old plan (stop 4-10% under price structure, fixed target at
+# the next resistance, 15-day time stop) was stopped out within a week 58% of the time.
+plan:
+  max_entry_above_close_percent: 3
+  breakout_entry_band_percent: 2
+  stop_atr_multiple: 2.5           # stop = entry minus this x the average daily range (ATR)
+  stop_min_percent: 4              # never tighter than this
+  stop_max_percent: 12.5           # a stock needing more is too volatile: no plan (such stocks lost in both test periods)
+  resistance_pivot_bars: 10        # a "real" resistance is a peak that stood for this many bars each side (shown for information)
+  target2_r: 3.0                   # second reference level = this x the risk
+  partial_profit_min_percent: 4    # "consider booking partial profit" is never suggested closer to the entry than this
+  # The reference target is INFORMATION ONLY: it never decides or filters a grade.
+  min_reward_risk: 0               # 0 = no filter (was 1.5 in Stage 5b: it removed 98% of candidates and the rest did no better)
+  resistance_warning_reward_risk: 1.5   # target closer than this x the stop distance: show "Resistance close above" ...
+  resistance_rank_penalty: 0.97    # ... and multiply the ranking value by this (ranked slightly lower)
+  trail: chandelier                # the exit: a stop that follows the price up
+  chandelier_atr_multiple: 3.0     # ... at the highest price since entry minus this x ATR
+  max_hold_sessions: 40            # sell after this many trading days whatever the price
+  gap_risk_avg_range_percent: 5    # warn when the average daily range exceeds this
+
+# ------------------------------------------------------- backtest and journal
+# Used by `python -m nepse_bot.backtest` and by the live journal (/report).
+backtest:
+  out_of_sample_years: 2           # the most recent years are kept aside for the final test
+  entry_valid_sessions: 1          # a buy order is tried on the next trading day only
+  # The gate. A setup is "proven" (may be shown as BUY) only if it passes in BOTH the
+  # tuning period and the out-of-sample period. 50 trades is about one year of signals
+  # for one setup - fewer than that and a profit factor is mostly luck.
+  gate_min_profit_factor: 1.2
+  gate_min_trades: 50
+  live_disable_after_signals: 20   # live journal: judge a setup on its last N finished signals
+  live_min_profit_factor: 1.0      # ... and switch it off automatically below this
+
+# ------------------------------------------------------------ portfolio risk
+# Stage 5: rules for your own holdings (/positions). The trailing stop and the
+# 40-session limit of a position come from the "plan" section above.
+portfolio_risk:
+  max_sector_percent: 40            # one sector, % of total capital
+  max_single_position_percent: 25   # one stock, % of total capital (above this: TRIM)
+  max_open_risk_percent: 6          # rupees given back if every trailing stop is hit, % of capital
+  book_closure_notice_days: 15      # mention a book closure this many trading days ahead
+  long_term_tax_notice_days: 90     # mention the lower long-term tax rate this many days ahead
+  stop_near_percent: 2              # alert when the price is within this % of the trailing stop
+  time_limit_notice_sessions: 5     # alert this many sessions before the 40-session limit
+
+# ------------------------------------------------- long-horizon research test
+# Stage 5 Part A (python -m nepse_bot.backtest.longterm). Sector-relative value +
+# quality, held 3-12 months. Fixed before the test was run; not tuned afterwards.
+longterm:
+  capital: 500000
+  positions: 10                    # equal-sized holdings
+  min_hold_days: 90                # never sold earlier than this
+  max_hold_days: 365               # always sold at the first rebalance after this
+  sell_rank_buffer: 2              # sold when its rank drops below positions x this
+  quarterly_months: [3, 6, 9, 12]  # first trading day of these months (after the Aug/Nov reports)
+  dividend_lookback_days: 400
+  dividend_tax_percent: 5
+  tuning_start: "2022-08-01"       # earliest date with enough published fundamentals
